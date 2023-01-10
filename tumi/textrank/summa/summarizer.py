@@ -4,6 +4,8 @@ from pagerank_weighted import pagerank_weighted_scipy as _pagerank
 from textcleaner import clean_text_by_sentences as _clean_text_by_sentences
 from commons import build_graph as _build_graph
 from commons import remove_unreachable_nodes as _remove_unreachable_nodes
+from sentence_transformers import SentenceTransformer
+import numpy as np
 
 
 def _set_graph_edge_weights(graph):
@@ -38,19 +40,35 @@ def _create_valid_graph(graph):
             graph.add_edge(edge, 1)
 
 
+#def _get_similarity(s1, s2):
+    #words_sentence_one = s1.split()
+    #words_sentence_two = s2.split()
+
+    #common_word_count = _count_common_words(words_sentence_one, words_sentence_two)
+
+    #log_s1 = log10(len(words_sentence_one))
+    #log_s2 = log10(len(words_sentence_two))
+
+    #if log_s1 + log_s2 == 0:
+        #return 0
+
+    #return common_word_count / (log_s1 + log_s2)#
+###################This is our new function for cosine Similarity---------#############################
 def _get_similarity(s1, s2):
-    words_sentence_one = s1.split()
-    words_sentence_two = s2.split()
+    #from sentence_transformers import SentenceTransformer
+    #import numpy as np
+    model = SentenceTransformer('bert-base-uncased')
+    sentences_Pos1 = s1
+    vector1 = model.encode(sentences_Pos1)
+    sentences_Pos2 = s2
+    vector2 = model.encode(sentences_Pos2)
 
-    common_word_count = _count_common_words(words_sentence_one, words_sentence_two)
+    vector1 = np.array(vector1)
+    vector2 = np.array(vector2)
+    print("##################################: Inside the CosineFunction :########################################################")
+    return np.dot(vector1, vector2) / (np.sqrt(np.sum(vector1**2)) * np.sqrt(np.sum(vector2**2)))
 
-    log_s1 = log10(len(words_sentence_one))
-    log_s2 = log10(len(words_sentence_two))
-
-    if log_s1 + log_s2 == 0:
-        return 0
-
-    return common_word_count / (log_s1 + log_s2)
+###########################: Ends here :##########################################################################
 
 
 def _count_common_words(words_sentence_one, words_sentence_two):
