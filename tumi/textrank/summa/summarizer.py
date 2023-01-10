@@ -65,7 +65,7 @@ def _get_similarity(s1, s2):
 
     vector1 = np.array(vector1)
     vector2 = np.array(vector2)
-    print("##################################: Inside the CosineFunction :########################################################")
+    #print("##################################: Inside the CosineFunction :########################################################")
     return np.dot(vector1, vector2) / (np.sqrt(np.sum(vector1**2)) * np.sqrt(np.sum(vector2**2)))
 
 ###########################: Ends here :##########################################################################
