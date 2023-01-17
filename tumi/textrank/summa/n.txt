@@ -1,4 +1,4 @@
-('Childhood will be terrible without games.'
-'I feel tired this morning.'
-'Artificial intelligence  that focuses on how machines process human language.'
-'This view is horrible.')
+('childhood will be terrible without games'
+'i feel tired this morning'
+'artificial intelligence  that focuses on how machines process human language'
+'this view is horrible')
