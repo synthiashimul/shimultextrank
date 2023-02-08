@@ -1,8 +1,0 @@
-('i love this car'
-'this view is amazing'
-'i feel great this morning'
-'i am so excited about the concert'
-'he is my best friend'
-'in three years everyone will be happy'
-'childhood is unforgettable'
-'sentiment analysis is an automated process capable of understanding the feelings')
