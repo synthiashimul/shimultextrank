@@ -1,8 +1,0 @@
-('childhood is the time to play '
-'i do not like this car'
-'he is my enemy'
-'they will not be joining us dinner tonight'
-'they are not from ecuador'
-'there is a book on the desk'
-'i am not looking forward to the concert'
-'she loves to write short stories in the local coffee shop')
